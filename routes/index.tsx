@@ -10,7 +10,6 @@ export default function Home() {
       <Head>
         <title>Fresh App</title>
       </Head>
-      <Carousel></Carousel>
     </>
   );
 }
