@@ -7,7 +7,7 @@ interface Project {
 
 export const handler: MultiHandler<Project> = {
   async GET(_req, ctx) {
-    const project = { name: "hej", starts: 5 };
+    const project = { name: "hej", stars: 5 };
     if (!project) {
       return new Response("Project not found", { status: 404 });
     }
