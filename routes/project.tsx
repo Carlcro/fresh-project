@@ -1,12 +1,12 @@
-import { MultiHandler, PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 
 interface Project {
   name: string;
   stars: number;
 }
 
-export const handler: MultiHandler<Project> = {
-  async GET(_req, ctx) {
+export const handler: Handlers = {
+    GET(_req, ctx) {
     const project = { name: "hej", stars: 5 };
     if (!project) {
       return new Response("Project not found", { status: 404 });

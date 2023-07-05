@@ -1,4 +1,4 @@
-import { MultiHandler, PageProps } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 
 interface User {
   login: string;
@@ -6,7 +6,7 @@ interface User {
   avatar_url: string;
 }
 
-export const handler: MultiHandler<User | null> = {
+export const handler: Handlers<User | null> = {
   async GET(_, ctx) {
     const { username } = ctx.params;
     const resp = await fetch(`https://api.github.com/users/${username}`);
@@ -17,7 +17,6 @@ export const handler: MultiHandler<User | null> = {
     return ctx.render(user);
   },
 };
-
 export default function Page({ data }: PageProps<User | null>) {
   if (!data) {
     return <h1>User not found</h1>;
